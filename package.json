@@ -1,0 +1,15 @@
+{
+  "name": "preact-samples",
+  "version": "0.0.1",
+  "description": "A collection of sample apps demonstrating Preact's compatibility with various 3rd party libraries",
+  "main": "index.js",
+  "scripts": {
+    "test": "karmatic"
+  },
+  "keywords": [
+    "preact",
+    "preact-compat"
+  ],
+  "author": "",
+  "license": "MIT"
+}
