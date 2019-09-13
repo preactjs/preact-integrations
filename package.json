@@ -4,6 +4,7 @@
   "description": "A collection of sample apps demonstrating Preact's compatibility with various 3rd party libraries",
   "main": "index.js",
   "scripts": {
+    "build": "babel src --out-dir lib",
     "test": "karmatic"
   },
   "keywords": [
@@ -11,5 +12,14 @@
     "preact-compat"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "preact": "^10.0.0-rc.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0"
+  }
 }
