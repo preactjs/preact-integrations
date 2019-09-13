@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "test": "karmatic"
+    "test": "karmatic",
+    "test:debug": "karmatic debug"
   },
   "keywords": [
     "preact",
@@ -20,6 +21,9 @@
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
-    "@babel/preset-react": "^7.0.0"
+    "@babel/preset-react": "^7.0.0",
+    "@types/jasmine": "^3.4.0",
+    "karmatic": "^1.4.0",
+    "webpack": "^4.40.0"
   }
 }
