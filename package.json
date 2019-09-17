@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "preact": "^10.0.0-rc.3",
+    "preact-router": "^2.6.1",
     "react-redux": "^7.1.1",
     "redux": "^4.0.4"
   },
