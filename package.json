@@ -4,7 +4,7 @@
   "description": "A collection of sample apps demonstrating Preact's compatibility with various 3rd party libraries",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "webpack --config ./src/direct/webpack.config.js",
     "test": "karmatic",
     "test:debug": "karmatic debug"
   },
@@ -28,6 +28,7 @@
     "@babel/preset-react": "^7.0.0",
     "@types/jasmine": "^3.4.0",
     "karmatic": "^1.4.0",
-    "webpack": "^4.40.0"
+    "webpack": "^4.40.0",
+    "webpack-cli": "^3.3.8"
   }
 }
