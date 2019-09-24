@@ -1,5 +1,5 @@
 {
-  "name": "preact-samples",
+  "name": "preact-integrations",
   "version": "0.0.1",
   "description": "A collection of sample apps demonstrating Preact's compatibility with various 3rd party libraries",
   "main": "index.js",

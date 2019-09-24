@@ -1,3 +1,3 @@
-# Contributing to preact-samples
+# Contributing to preact-integrations
 
 TODO
