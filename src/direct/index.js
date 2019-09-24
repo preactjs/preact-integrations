@@ -12,12 +12,24 @@ function Loading() {
 	return <p>Loading...</p>;
 }
 
+function readLibraryFromHash() {
+	const library = location.hash.slice(1);
+	if (libraries.includes(library)) {
+		return library;
+	}
+
+	return null;
+}
+
+const initialLibrary = readLibraryFromHash() || libraries[0];
+
 function App() {
-	const [selectedLibrary, setSelectedLibrary] = useState(libraries[0]);
+	const [selectedLibrary, setSelectedLibrary] = useState(initialLibrary);
 	const [loading, setLoading] = useState(true);
 	const [Body, setBody] = useState(null);
 
 	useEffect(() => {
+		location.hash = selectedLibrary;
 		load(selectedLibrary).then(c => {
 			setLoading(false);
 			setBody(() => c);
