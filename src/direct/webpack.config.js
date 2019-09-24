@@ -26,7 +26,7 @@ module.exports = {
 	entry: repoRoot("./src/direct/index.js"),
 	output: {
 		filename: "direct.bundle.js",
-		path: repoRoot("dist/direct")
+		path: repoRoot("preact-integrations/direct")
 	},
 	module: {
 		rules: [
