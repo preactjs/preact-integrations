@@ -86,4 +86,4 @@ function getConfig(bundleName, title) {
 
 module.exports = {
 	getConfig
-}
+};

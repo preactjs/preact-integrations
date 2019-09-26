@@ -9,8 +9,9 @@ import { setLibraryInUrl } from "../utils/url";
  * @param {PageProps} props
  */
 export function Page({ libraries, initialLibrary, loadLibrary }) {
-	// TODO: Change to useReducer
-	const [selectedLibrary, setSelectedLibrary] = useState(initialLibrary || libraries[0]);
+	initialLibrary = initialLibrary || libraries[0];
+
+	const [selectedLibrary, setSelectedLibrary] = useState(initialLibrary);
 	const [loading, setLoading] = useState(true);
 	const [Body, setBody] = useState(null);
 
