@@ -1,4 +1,3 @@
-const path = require("path");
 const { readdirSync } = require("fs");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -7,11 +6,12 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const SizePlugin = require("size-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-	.BundleAnalyzerPlugin;
+.BundleAnalyzerPlugin;
 
-const repoRoot = (...args) => path.join(__dirname, "..", ...args);
+const { repoRoot } = require("../scripts/util");
+
 const listDirsSync = dir =>
-	readdirSync(dir, { withFileTypes: true })
+readdirSync(dir, { withFileTypes: true })
 		.filter(f => !f.isFile())
 		.map(f => f.name);
 

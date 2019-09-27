@@ -1,4 +1,4 @@
-import { createElement, render, Fragment } from "preact";
+import { createElement, render } from "preact";
 import { App } from "../shared/App";
 
 /** @type {string[]} */
@@ -8,4 +8,7 @@ function loadLibrary(library) {
 	return import(`./${library}/index.js`).then(m => m.default);
 }
 
-render(<App libraries={libraries} loadLibrary={loadLibrary} />, document.getElementById("root"));
+render(
+	<App libraries={libraries} loadLibrary={loadLibrary} />,
+	document.getElementById("root")
+);

@@ -4,7 +4,7 @@
   "description": "A collection of sample apps demonstrating Preact's compatibility with various 3rd party libraries",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development --config ./src/direct/webpack.config.js",
+    "build": "node ./scripts/build.js",
     "serve": "serve",
     "test": "karmatic",
     "test:debug": "karmatic debug"
@@ -34,6 +34,7 @@
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
+    "mri": "^1.1.4",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
