@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./scripts/build.js",
-    "serve": "serve",
+    "dev": "node ./scripts/dev.js",
     "test": "karmatic",
     "test:debug": "karmatic debug"
   },
