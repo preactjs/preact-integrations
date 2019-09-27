@@ -8,14 +8,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 .BundleAnalyzerPlugin;
 
-const { repoRoot } = require("../scripts/util");
+const { repoRoot, outputPath } = require("../scripts/util");
 
 const listDirsSync = dir =>
 readdirSync(dir, { withFileTypes: true })
 		.filter(f => !f.isFile())
 		.map(f => f.name);
-
-const distFolder = "preact-integrations";
 
 /**
  * @typedef {{ mode: "development" | "production" }} WebpackArgv
@@ -25,7 +23,7 @@ const distFolder = "preact-integrations";
  */
 const getConfig = (bundleName, title) => (env, argv) => {
 	const srcDir = (...args) => repoRoot("./src", bundleName, ...args);
-	const distDir = (...args) => repoRoot(distFolder, bundleName, ...args);
+	const distDir = (...args) => outputPath(bundleName, ...args);
 
 	return {
 		entry: srcDir("index.js"),

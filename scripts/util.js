@@ -3,6 +3,9 @@ const { promisify } = require("util");
 const { exists: existsAsync } = require("fs");
 const { readdir } = require("fs").promises;
 
+const outputFolder = "preact-integrations";
+const outputPath = (...args) => repoRoot(outputFolder, ...args);
+
 const repoRoot = (...args) => path.join(__dirname, "..", ...args);
 const srcPath = (...args) => repoRoot("src", ...args);
 const webpackConfigPath = bundleName =>
@@ -26,5 +29,7 @@ module.exports = {
 	listDirs,
 	listFiles,
 	exists,
-	webpackConfigPath
+	webpackConfigPath,
+	outputFolder,
+	outputPath
 };
