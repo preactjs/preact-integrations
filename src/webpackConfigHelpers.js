@@ -1,5 +1,10 @@
 const path = require("path");
 const { readdirSync } = require("fs");
+const TerserPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const SizePlugin = require("size-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 	.BundleAnalyzerPlugin;
@@ -13,25 +18,26 @@ const listDirsSync = dir =>
 const distFolder = "preact-integrations";
 
 /**
+ * @typedef {{ mode: "development" | "production" }} WebpackArgv
  * @param {string} bundleName
  * @param {string} title
- * @returns {import('webpack').Configuration}
+ * @returns {(env: any, argv: WebpackArgv) => import('webpack').Configuration}
  */
-function getConfig(bundleName, title) {
+const getConfig = (bundleName, title) => (env, argv) => {
 	const srcDir = (...args) => repoRoot("./src", bundleName, ...args);
 	const distDir = (...args) => repoRoot(distFolder, bundleName, ...args);
 
 	return {
 		entry: srcDir("index.js"),
 		output: {
-			filename: `${bundleName}.bundle.js`,
+			filename: `${bundleName}.[contenthash:5].bundle.js`,
 			path: distDir()
 		},
 		module: {
 			rules: [
 				{
 					test: /\.m?js$/,
-					exclude: /(node_modules|bower_components)/,
+					exclude: /node_modules/,
 					use: {
 						loader: "babel-loader",
 						options: {
@@ -50,10 +56,54 @@ function getConfig(bundleName, title) {
 							]
 						}
 					}
+				},
+				{
+					test: /\.scss$/,
+					exclude: /node_modules/,
+					use: [
+						MiniCssExtractPlugin.loader,
+						{
+							loader: "css-loader",
+							options: {
+								modules: {
+									localIdentName: "[local]__[hash:base64:5]"
+								},
+								importLoaders: 1,
+								sourceMap: true
+							}
+						},
+						{
+							loader: "postcss-loader",
+							options: {
+								ident: "postcss",
+								sourceMap: true,
+								plugins: [require("autoprefixer")]
+							}
+						},
+						{
+							loader: "sass-loader",
+							options: {
+								sourceMap: true
+							}
+						}
+					]
+				},
+				{
+					test: /\.(svg|woff2?|ttf|eot|jpe?g|png|webp|gif|mp4|mov|ogg|webm)(\?.*)?$/i,
+					loader: "file-loader"
 				}
 			]
 		},
+		optimization: {
+			minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin()],
+			moduleIds: argv.mode == "production" ? "hashed" : "named"
+		},
 		plugins: [
+			new SizePlugin({}),
+			new MiniCssExtractPlugin({
+				filename: "[name].[contenthash:5].css",
+				chunkFilename: "[name].chunk.[contenthash:5].css"
+			}),
 			new HtmlWebpackPlugin({
 				title: `${title} - Preact Integrations`,
 				template: repoRoot("src/shared/template.ejs"),
@@ -79,10 +129,11 @@ function getConfig(bundleName, title) {
 				openAnalyzer: false,
 				// generateStatsFile: true,
 				statsFilename: "stats/stats.js"
-			})
+			}),
+			new CleanWebpackPlugin({})
 		]
 	};
-}
+};
 
 module.exports = {
 	getConfig

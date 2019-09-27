@@ -5,6 +5,7 @@
 ##############################################
 
 lib/
+.vscode/
 
 # dist folder
 preact-integrations/
