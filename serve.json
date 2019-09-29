@@ -1,0 +1,4 @@
+{
+	"directoryListing": false,
+	"redirects": [{ "source": "/", "destination": "/preact-integrations" }]
+}

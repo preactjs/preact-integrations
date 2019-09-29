@@ -20,6 +20,7 @@ function About() {
 export default function App() {
 	return (
 		<div>
+			<h1>Preact Router</h1>
 			<nav>
 				<Link activeClassName="active" href="/">
 					Home

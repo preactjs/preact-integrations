@@ -106,5 +106,7 @@ async function getWebpackTasks(buildRequests, options = {}) {
 }
 
 module.exports = {
+	getAvailableBundles,
+	getAvailableLibraries,
 	getWebpackTasks
 }
