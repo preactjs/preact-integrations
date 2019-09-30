@@ -2,11 +2,16 @@ const {
 	runDevServer,
 	exitDevServer,
 	ensureDevServerRunning
-} = require("./lib/serve");
-const { toCompletion } = require("./lib/node");
-const { runJest } = require("./lib/jest");
+} = require("./serve");
+const { repoRoot } = require("./util");
+const { runNode, toCompletion } = require("./lib/node");
 
-async function main() {
+const jestPath = repoRoot("./node_modules/jest/bin/jest.js");
+
+/**
+ * @param {string[]} libraries
+ */
+async function test(libraries) {
 	const devServerProcess = runDevServer();
 
 	try {
@@ -17,7 +22,7 @@ async function main() {
 	}
 
 	try {
-		await toCompletion(runJest(process.argv.slice(2)));
+		await toCompletion(runNode(jestPath, libraries));
 	} finally {
 		try {
 			await exitDevServer(devServerProcess);
@@ -27,7 +32,6 @@ async function main() {
 	}
 }
 
-main().catch(e => {
-	console.error(e);
-	process.exit(1);
-});
+module.exports = {
+	test
+};

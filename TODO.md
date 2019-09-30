@@ -1,6 +1,6 @@
-* Consolidate scripts args parsing into a scripts/index.js sade program
 * Save selected library to url path instead of hash
 * Style everything
+* Add two frameworks to each category
 * Use a combobox for selecting a framework
 	* [Native datalist](https://caniuse.com/#feat=datalist)
 	* [Reach UI combobox](https://ui.reach.tech/combobox/)
@@ -8,6 +8,7 @@
 	* [React-select](https://react-select.com/)
 	* [Lightning Design System combobox](https://www.lightningdesignsystem.com/components/combobox/)
 	* [Carbon Design System combobox](https://www.carbondesignsystem.com/components/dropdown/code/)
+* Consider recommending the [Puppeteer Recorder](https://chrome.google.com/webstore/detail/puppeteer-recorder/djeegiggegleadkkbgopoonhjimgehda) when contributing tests
 
 
 * Add option to specify custom preact file to use

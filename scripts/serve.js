@@ -1,12 +1,12 @@
-const { repoRoot } = require("../util");
-const { get } = require("./request");
-const { runNode, toCompletion } = require("./node");
+const { repoRoot } = require("./util");
+const { get } = require("./lib/request");
+const { runNode, toCompletion } = require("./lib/node");
 
 const port = 5000;
 const devHost = `http://localhost:${port}`;
 
 /**
- * @param {import('./node').NodeOptions} [options]
+ * @param {import('./lib/node').NodeOptions} [options]
  */
 function runDevServer(options) {
 	return runNode(

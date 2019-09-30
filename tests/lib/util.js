@@ -1,9 +1,9 @@
 import { outputFolder } from "../../scripts/util";
-import { host } from "../../scripts/lib/serve";
+import { host } from "../../scripts/serve";
 import {
 	getAvailableBundles,
 	getAvailableLibraries
-} from "../../scripts/lib/webpack";
+} from "../../scripts/build";
 
 let bundleCache;
 let libraryCache;
