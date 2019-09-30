@@ -6,12 +6,12 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const SizePlugin = require("size-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-.BundleAnalyzerPlugin;
+	.BundleAnalyzerPlugin;
 
 const { repoRoot, outputPath } = require("../scripts/util");
 
 const listDirsSync = dir =>
-readdirSync(dir, { withFileTypes: true })
+	readdirSync(dir, { withFileTypes: true })
 		.filter(f => !f.isFile())
 		.map(f => f.name);
 
@@ -22,13 +22,16 @@ readdirSync(dir, { withFileTypes: true })
  * @returns {(env: any, argv: WebpackArgv) => import('webpack').Configuration}
  */
 const getConfig = (bundleName, title) => (env, argv) => {
+	const isDev = argv.mode === "development";
 	const srcDir = (...args) => repoRoot("./src", bundleName, ...args);
 	const distDir = (...args) => outputPath(bundleName, ...args);
 
 	return {
 		entry: srcDir("index.js"),
 		output: {
-			filename: `${bundleName}.[contenthash:5].bundle.js`,
+			filename: isDev
+				? `${bundleName}.bundle.js`
+				: `${bundleName}.[contenthash:5].bundle.js`,
 			path: distDir()
 		},
 		module: {
@@ -94,13 +97,15 @@ const getConfig = (bundleName, title) => (env, argv) => {
 		},
 		optimization: {
 			minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin()],
-			moduleIds: argv.mode == "production" ? "hashed" : "named"
+			moduleIds: isDev ? "named" : "hashed"
 		},
 		plugins: [
 			new SizePlugin({}),
 			new MiniCssExtractPlugin({
-				filename: "[name].[contenthash:5].css",
-				chunkFilename: "[name].chunk.[contenthash:5].css"
+				filename: isDev ? "[name].css" : "[name].[contenthash:5].css",
+				chunkFilename: isDev
+					? "[id].[name].chunk.css"
+					: "[name].chunk.[contenthash:5].css"
 			}),
 			new HtmlWebpackPlugin({
 				title: `${title} - Preact Integrations`,
@@ -125,11 +130,11 @@ const getConfig = (bundleName, title) => (env, argv) => {
 				defaultSizes: "gzip",
 				reportFilename: "stats/bundle-analyzer.html",
 				openAnalyzer: false,
-				// generateStatsFile: true,
-				statsFilename: "stats/stats.js"
+				// generateStatsFile: true, // Expensive. Only generate when needed
+				statsFilename: "stats/stats.json"
 			}),
-			new CleanWebpackPlugin({})
-		]
+			...(isDev ? [] : [new CleanWebpackPlugin({})])
+		].filter(Boolean)
 	};
 };
 
