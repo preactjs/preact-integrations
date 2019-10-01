@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 	.BundleAnalyzerPlugin;
 
+const config = require("./shared/config");
 const { repoRoot, outputPath } = require("../scripts/util");
 
 const listDirsSync = dir =>
@@ -32,7 +33,8 @@ const getConfig = (bundleName, title) => (env, argv) => {
 			filename: isDev
 				? `${bundleName}.bundle.js`
 				: `${bundleName}.[contenthash:5].bundle.js`,
-			path: distDir()
+			path: distDir(),
+			publicPath: `${config.base}/${bundleName}/`
 		},
 		module: {
 			rules: [

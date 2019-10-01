@@ -1,5 +1,6 @@
 import { createElement } from "preact";
-import { config, getUrl } from "../config";
+import config from "../config";
+import { getUrl } from "../utils/url";
 import styles from "./styles.scss";
 
 export function Header() {

@@ -1,4 +1,3 @@
-* Save selected library to url path instead of hash
 * Style everything
 * Add two frameworks to each category
 * Use a combobox for selecting a framework

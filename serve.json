@@ -1,4 +1,18 @@
 {
 	"directoryListing": false,
+	"rewrites": [
+		{
+			"source": "/preact-integrations/direct/**",
+			"destination": "/preact-integrations/direct/index.html"
+		},
+		{
+			"source": "/preact-integrations/direct-compat/**",
+			"destination": "/preact-integrations/direct-compat/index.html"
+		},
+		{
+			"source": "/preact-integrations/full-compat/**",
+			"destination": "/preact-integrations/full-compat/index.html"
+		}
+	],
 	"redirects": [{ "source": "/", "destination": "/preact-integrations" }]
 }

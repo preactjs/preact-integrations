@@ -18,7 +18,7 @@ async function libraryPath(library) {
 	}
 
 	if (library in libraryCache) {
-		return `${libraryCache[library]}/#${library}`;
+		return `${libraryCache[library]}/${library}`;
 	} else {
 		throw new Error(`Can't find library "${library}"`);
 	}

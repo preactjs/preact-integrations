@@ -1,6 +1,9 @@
 import { createElement } from "preact";
 import { Router, Link } from "preact-router";
 
+const url = path =>
+	location.pathname + (location.pathname.endsWith("/") ? "" : "/") + path;
+
 function Home() {
 	return (
 		<div>
@@ -22,16 +25,16 @@ export default function App() {
 		<div>
 			<h1>Preact Router</h1>
 			<nav>
-				<Link activeClassName="active" href="/">
+				<Link activeClassName="active" href={url("")}>
 					Home
 				</Link>
-				<Link activeClassName="active" href="/about">
+				<Link activeClassName="active" href={url("about")}>
 					About
 				</Link>
 			</nav>
 			<Router>
-				<Home path="/" />
-				<About path="/about" />
+				<Home path={url("")} />
+				<About path={url("about")} />
 			</Router>
 		</div>
 	);
