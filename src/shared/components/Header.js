@@ -6,7 +6,7 @@ import githubIcon from "../assets/github.svg";
 import twitterIcon from "../assets/twitter.svg";
 import { useOverlayToggle } from "../lib/useOverlayToggle";
 import { getUrl } from "../utils/url";
-import style from "./styles.scss";
+import style from "./Header.scss";
 import { InvertedLogo } from "./Logo.js";
 import Corner from "./Corner.js";
 
