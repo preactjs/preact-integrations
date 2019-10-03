@@ -1,9 +1,283 @@
-.header {
-	background-color: purple;
-	color: white;
+@import "../style/_variables.scss";
 
-	a:link,
-	a:visited {
-		color: white;
+.header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: $header-height;
+	padding: 0;
+	background: $color-brand;
+	z-index: 500;
+	overflow: visible;
+	text-align: center;
+	transition: all 250ms ease;
+	transform: translateZ(0);
+	display: flex;
+	justify-content: center;
+
+	@media (max-width: $header-mobile-breakpoint) {
+		overflow: hidden;
+
+		&.open {
+			background: #222;
+			height: var(--vh);
+			overflow: auto;
+			justify-content: space-between;
+			overflow-scrolling: touch;
+
+			nav {
+				margin-right: 0;
+				position: absolute;
+				width: 100%;
+				text-align: left;
+				padding: 0;
+
+				a:global(.home) {
+					text-align: left;
+					padding-left: 26px;
+				}
+
+				a {
+					display: block;
+				}
+
+				section {
+					margin: 0;
+					display: block;
+
+					a {
+						text-align: left;
+					}
+				}
+			}
+		}
+	}
+
+	nav {
+		position: relative;
+		display: inline-block;
+		font-size: 100%;
+		user-select: none;
+		user-drag: none;
+
+		@media (max-width: $header-mobile-breakpoint) {
+			display: block;
+			padding: 0 23px;
+		}
+
+		a {
+			display: inline-block;
+			position: relative;
+			height: $header-height;
+			line-height: $header-height;
+			padding: 0 1rem;
+			min-width: 50px;
+			border: none;
+			text-align: center;
+			background-color: rgba(255, 255, 255, 0);
+			text-decoration: none;
+			font-size: 16px;
+			color: #eee;
+			cursor: pointer;
+
+			@media (max-width: $header-mobile-breakpoint) {
+				min-width: 100px;
+				text-align: left;
+				padding-left: 26px;
+				display: none;
+			}
+
+			@media #{$sidebar-break} {
+				padding: 0 1.25rem;
+			}
+
+			&:global(.home) {
+				text-transform: uppercase;
+				padding: 0 15px;
+
+				@media (max-width: $header-mobile-breakpoint) {
+					display: block;
+					padding: 0;
+				}
+
+				&.current {
+					background: none;
+				}
+
+				svg {
+					position: relative;
+					padding-right: 5px;
+				}
+			}
+
+			&.current {
+				background-size: 100% 0.3rem;
+				background-position: center top;
+				background-repeat: no-repeat;
+				background-image: linear-gradient(#ad80ff, #ad80ff);
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: rgba(255, 255, 255, 0.3);
+			}
+
+			@media (max-width: $header-mobile-breakpoint) {
+				&,
+				&.current,
+				&:hover,
+				&:active {
+					background-color: transparent;
+				}
+			}
+		}
+	}
+}
+
+.inner {
+	max-width: $full-width;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	@media (min-width: $content-width) {
+		justify-content: center;
+		justify-content: flex-start;
+	}
+
+	@media #{$sidebar-break} {
+		justify-content: center;
+	}
+}
+
+.social {
+	position: absolute;
+	height: 2rem;
+	top: calc(var(--vh) - 3rem); // TODO: Why does bottom not work?
+	padding: 0 1rem;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+
+	@media (min-width: $content-width) {
+		top: initial;
+		height: 100%;
+		left: initial;
+		position: relative;
+		width: initial;
+	}
+}
+
+.socialItem {
+	display: flex;
+	padding: 0 0.5rem;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	color: #f0f0f0;
+	transition: all 0.3s;
+
+	@media (min-width: 1024px) {
+		padding: 0 1rem;
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+
+	img {
+		width: 1.6rem;
+	}
+}
+
+// hamburgler menu
+.hamburgler {
+	display: none;
+	position: absolute;
+	box-sizing: initial;
+	right: 0;
+	top: 0;
+	margin: 3px;
+	width: 20px;
+	height: 20px;
+	padding: 18px 23px 12px;
+	line-height: $header-height;
+	text-align: center;
+	z-index: 100;
+	opacity: 0.7;
+	cursor: pointer;
+	transition: opacity 250ms ease;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	@media (max-width: $header-mobile-breakpoint) {
+		display: block;
+		position: relative;
+	}
+
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 40px;
+		transform-origin: center;
+		background: rgba(255, 255, 255, 0.2);
+		transform: scale(0);
+	}
+
+	&:active:before {
+		animation: pop 200ms forwards cubic-bezier(0.15, 1.05, 0.54, 1.29) 1;
+	}
+
+	@keyframes pop {
+		to {
+			transform: scale(1);
+		}
+	}
+
+	.hb1,
+	.hb2,
+	.hb3 {
+		position: relative;
+		width: 20px;
+		height: 3px;
+		border-width: 1px 0;
+		margin: 0 auto 3px;
+		padding: 0;
+		background: #fff;
+		border-radius: 1px;
+		font-size: 1px;
+		transition: all 200ms ease;
+		transform-origin: 0 0;
+	}
+
+	&[open] {
+		@media (max-width: $header-mobile-breakpoint) {
+			position: absolute;
+		}
+
+		.hb1 {
+			transform: translate(4px, -1px) rotate(45deg);
+		}
+
+		.hb2 {
+			opacity: 0;
+		}
+
+		.hb3 {
+			transform: translate(2px, 1px) rotate(-45deg);
+		}
 	}
 }

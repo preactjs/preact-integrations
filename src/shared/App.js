@@ -1,4 +1,5 @@
-import { createElement } from "preact";
+import "./style/index.scss";
+import { createElement, Fragment } from "preact";
 import { Header } from "./components/Header";
 import { Page } from "./components/Page";
 import { readLibraryFromUrl } from "./utils/url";
@@ -8,9 +9,9 @@ import { readLibraryFromUrl } from "./utils/url";
  */
 export function App(props) {
 	return (
-		<div id="app">
+		<Fragment>
 			<Header />
 			<Page initialLibrary={readLibraryFromUrl(props.libraries)} {...props} />
-		</div>
+		</Fragment>
 	);
 }

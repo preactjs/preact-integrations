@@ -1,4 +1,4 @@
-* Style everything
+* Style page content
 * Add two frameworks to each category
 * Use a combobox for selecting a framework
 	* [Native datalist](https://caniuse.com/#feat=datalist)

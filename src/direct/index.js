@@ -10,5 +10,5 @@ function loadLibrary(library) {
 
 render(
 	<App libraries={libraries} loadLibrary={loadLibrary} />,
-	document.getElementById("root")
+	document.getElementById("app")
 );

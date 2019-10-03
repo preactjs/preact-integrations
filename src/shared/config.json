@@ -3,18 +3,21 @@
 	"nav": [
 		{
 			"path": "/",
-			"name": "Preact Integrations"
+			"name": "Preact Integrations",
+			"title": "Home",
+			"class": "home",
+			"flair": "logo"
 		},
 		{
-			"path": "/direct",
+			"path": "/direct/",
 			"name": "Direct"
 		},
 		{
-			"path": "/direct-compat",
+			"path": "/direct-compat/",
 			"name": "Direct Compat"
 		},
 		{
-			"path": "/full-compat",
+			"path": "/full-compat/",
 			"name": "Full Compat"
 		}
 	]

@@ -30,14 +30,14 @@ export function Page({ libraries, initialLibrary, loadLibrary }) {
 
 	return (
 		<Fragment>
-			<div>
+			<main>
 				<select value={selectedLibrary} onchange={onLibraryChange}>
 					{libraries.map(library => (
 						<option value={library}>{library}</option>
 					))}
 				</select>
 				{loading ? <Loading /> : <Body />}
-			</div>
+			</main>
 		</Fragment>
 	);
 }

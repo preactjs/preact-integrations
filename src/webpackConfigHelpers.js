@@ -93,7 +93,10 @@ const getConfig = (bundleName, title) => (env, argv) => {
 				},
 				{
 					test: /\.(svg|woff2?|ttf|eot|jpe?g|png|webp|gif|mp4|mov|ogg|webm)(\?.*)?$/i,
-					loader: "file-loader"
+					loader: "file-loader",
+					options: {
+						name: isDev ? "[name].[ext]" : "[name].[contenthash:5].[ext]"
+					}
 				}
 			]
 		},
