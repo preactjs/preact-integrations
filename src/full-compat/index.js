@@ -1,6 +1,9 @@
 import { createElement, render } from "preact";
 import "preact/debug";
-import { App } from "../shared/App";
+import { App } from "../shared/components/App";
+import { Page } from "../shared/components/Page";
+import { readLibraryFromUrl } from "../shared/utils/url";
+import { FullCompatIntro } from "./FullCompatIntro";
 
 /** @type {string[]} */
 const libraries = window.PreactIntegrationLibraries;
@@ -10,6 +13,13 @@ function loadLibrary(library) {
 }
 
 render(
-	<App libraries={libraries} loadLibrary={loadLibrary} />,
+	<App>
+		<Page
+			initialLibrary={readLibraryFromUrl(libraries)}
+			libraries={libraries}
+			loadLibrary={loadLibrary}
+			Intro={FullCompatIntro}
+		/>
+	</App>,
 	document.getElementById("app")
 );

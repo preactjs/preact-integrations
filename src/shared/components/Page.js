@@ -3,15 +3,14 @@ import { useState, useEffect } from "preact/hooks";
 import { setLibraryInUrl } from "../utils/url";
 import { Loading } from "./Loading";
 import { LibraryToolbar } from "./LibraryToolbar";
-import { Intro } from "./Intro";
 import style from "./Page.scss";
 
 /**
  * @typedef {(library: string) => Promise<import('preact').AnyComponent>} LibraryLoader
- * @typedef {{ libraries: string[]; loadLibrary: LibraryLoader; initialLibrary?: string | null; }} PageProps
+ * @typedef {{ libraries: string[]; loadLibrary: LibraryLoader; initialLibrary?: string | null; Intro: import('preact').AnyComponent }} PageProps
  * @param {PageProps} props
  */
-export function Page({ libraries, initialLibrary, loadLibrary }) {
+export function Page({ libraries, initialLibrary, loadLibrary, Intro }) {
 	const [selectedLibrary, setSelectedLibrary] = useState(initialLibrary);
 	const [loading, setLoading] = useState(false);
 	const [Body, setBody] = useState(null);
