@@ -183,7 +183,7 @@ code {
 
 	& > main {
 		min-height: 95%;
-		padding-top: $header-height;
+		margin-top: $header-height;
 		display: block; // Fix IE11 layout
 	}
 }

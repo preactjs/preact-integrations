@@ -27,17 +27,17 @@ describe("URL utilities", () => {
 			}
 		});
 
-		it("should return null for URLs missing a library", () => {
-			expect(run(testUrl())).toBeNull;
-			expect(run(testUrl("/"))).toBeNull;
+		it("should return empty string for URLs missing a library", () => {
+			expect(run(testUrl())).toBe("");
+			expect(run(testUrl("/"))).toBe("");
 			for (let bundle of bundles) {
-				expect(run(testUrl(`/${bundle}`))).toBeNull;
-				expect(run(testUrl(`/${bundle}/`))).toBeNull;
+				expect(run(testUrl(`/${bundle}`))).toBe("");
+				expect(run(testUrl(`/${bundle}/`))).toBe("");
 			}
 		});
 
-		it("should return null for URLs containing non-valid libraries", () => {
-			expect(run(testUrl("/direct/non-valid-library"))).toBeNull;
+		it("should return empty string for URLs containing non-valid libraries", () => {
+			expect(run(testUrl("/direct/non-valid-library"))).toBe("");
 		});
 	});
 
@@ -90,6 +90,13 @@ describe("URL utilities", () => {
 			setLibraryInUrl("material", testUrl(`/direct/preact-router/home`));
 
 			const expectedUrl = testUrl(`/direct/material/`);
+			expect(pushStateSpy).toHaveBeenCalledWith({}, "", expectedUrl);
+		});
+
+		it("does not add extra trailing slash if library is empty string", () => {
+			setLibraryInUrl("", testUrl(`/direct/preact-router/home`));
+
+			const expectedUrl = testUrl(`/direct/`);
 			expect(pushStateSpy).toHaveBeenCalledWith({}, "", expectedUrl);
 		});
 	});

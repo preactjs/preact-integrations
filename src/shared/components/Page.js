@@ -1,7 +1,10 @@
 import { Fragment, createElement } from "preact";
 import { useState, useEffect } from "preact/hooks";
-import { Loading } from "./Loading";
 import { setLibraryInUrl } from "../utils/url";
+import { Loading } from "./Loading";
+import { LibraryToolbar } from "./LibraryToolbar";
+import { Intro } from "./Intro";
+import style from "./Page.scss";
 
 /**
  * @typedef {(library: string) => Promise<import('preact').AnyComponent>} LibraryLoader
@@ -9,34 +12,36 @@ import { setLibraryInUrl } from "../utils/url";
  * @param {PageProps} props
  */
 export function Page({ libraries, initialLibrary, loadLibrary }) {
-	initialLibrary = initialLibrary || libraries[0];
-
 	const [selectedLibrary, setSelectedLibrary] = useState(initialLibrary);
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [Body, setBody] = useState(null);
 
 	useEffect(() => {
 		setLibraryInUrl(selectedLibrary);
-		loadLibrary(selectedLibrary).then(c => {
-			setLoading(false);
-			setBody(() => c);
-		});
+		if (selectedLibrary) {
+			setLoading(true);
+			loadLibrary(selectedLibrary).then(c => {
+				setLoading(false);
+				setBody(() => c);
+			});
+		}
 	}, [selectedLibrary, setLoading, setBody]);
 
 	function onLibraryChange(e) {
 		setSelectedLibrary(e.target.value);
-		setLoading(true);
 	}
 
 	return (
 		<Fragment>
-			<main>
-				<select value={selectedLibrary} onchange={onLibraryChange}>
-					{libraries.map(library => (
-						<option value={library}>{library}</option>
-					))}
-				</select>
-				{loading ? <Loading /> : <Body />}
+			<main class={style.page}>
+				<LibraryToolbar
+					libraries={libraries}
+					selectedLibrary={selectedLibrary}
+					onChange={onLibraryChange}
+				/>
+				<div class={style.content}>
+					{loading ? <Loading /> : selectedLibrary == "" ? <Intro /> : <Body />}
+				</div>
 			</main>
 		</Fragment>
 	);

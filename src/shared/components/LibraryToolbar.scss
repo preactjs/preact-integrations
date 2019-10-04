@@ -1,0 +1,45 @@
+@import "../style/_variables.scss";
+
+.toolbar {
+	height: 2.5rem;
+	display: flex;
+	align-items: center;
+	// line-height: 2.5rem;
+	background: $color-brand;
+	color: #fff;
+	z-index: 100;
+
+	label {
+		padding: 0 10px;
+	}
+
+	select {
+		display: inline-block;
+		padding: 0.25rem;
+	}
+
+	button {
+		display: inline-block;
+		background: linear-gradient(to bottom, #373c45, #282c34);
+		background-color: #282c34;
+		border: 1px solid #656565;
+		color: #abb2bf;
+		padding: 0 10px;
+		margin: 0 5px;
+		border-radius: 4px;
+		line-height: 30px;
+		font-size: 100%;
+		outline: none;
+		cursor: pointer;
+
+		&:hover {
+			background: linear-gradient(to bottom, #404650, #323640);
+			background-color: #424854;
+			color: #d5dce8;
+		}
+
+		&[disabled] {
+			opacity: 0.5;
+		}
+	}
+}

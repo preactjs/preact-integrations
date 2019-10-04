@@ -1,5 +1,8 @@
 * Style page content
 * Add two frameworks to each category
+* Write contributing guide, homepage, and intro
+
+
 * Use a combobox for selecting a framework
 	* [Native datalist](https://caniuse.com/#feat=datalist)
 	* [Reach UI combobox](https://ui.reach.tech/combobox/)
@@ -10,10 +13,10 @@
 * Consider recommending the [Puppeteer Recorder](https://chrome.google.com/webstore/detail/puppeteer-recorder/djeegiggegleadkkbgopoonhjimgehda) when contributing tests
 
 
-* Add option to specify custom preact file to use
-* Webpack should re-bundle when preact changes 
-* Ideally people could run dev & tests and point them to a local build of preact
-* Perhaps test watch files and rerun on file change (e.g. local build of preact)
+* Add option to specify custom preact file to use when building, testing, etc.
+* Webpack should re-bundle when custom preact file changes 
+* Perhaps test command watches files and reruns tests on file change (including custom preact file)
+
 
 * Add "Open in Sandbox" button using [CodeSandbox define api](https://codesandbox.io/docs/importing#define-api)
 	* Need a way to download source files and build request for CodeSandbox

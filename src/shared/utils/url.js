@@ -22,7 +22,7 @@ export function readLibraryFromUrl(libraries, url = location.href) {
 		}
 	}
 
-	return null;
+	return "";
 }
 
 /**
@@ -30,7 +30,11 @@ export function readLibraryFromUrl(libraries, url = location.href) {
  * @param {string} [url]
  */
 export function setLibraryInUrl(library, url = location.href) {
-	const encoded = encodeURIComponent(library);
-	const newUrl = url.replace(libraryUrlRegex, `$1/${encoded}/`);
+	let encoded = encodeURIComponent(library);
+	if (encoded != "") {
+		encoded += "/"
+	}
+
+	const newUrl = url.replace(libraryUrlRegex, `$1/${encoded}`);
 	history.pushState({}, "", newUrl);
 }
