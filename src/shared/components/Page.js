@@ -32,16 +32,14 @@ export function Page({ libraries, initialLibrary, loadLibrary, Intro }) {
 
 	return (
 		<Fragment>
-			<main class={style.page}>
-				<LibraryToolbar
-					libraries={libraries}
-					selectedLibrary={selectedLibrary}
-					onChange={onLibraryChange}
-				/>
-				<div class={style.content}>
-					{loading ? <Loading /> : selectedLibrary == "" ? <Intro /> : <Body />}
-				</div>
-			</main>
+			<LibraryToolbar
+				libraries={libraries}
+				selectedLibrary={selectedLibrary}
+				onChange={onLibraryChange}
+			/>
+			<div class={style.content}>
+				{loading ? <Loading /> : selectedLibrary == "" ? <Intro /> : <Body />}
+			</div>
 		</Fragment>
 	);
 }

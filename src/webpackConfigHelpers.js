@@ -25,7 +25,9 @@ const listDirsSync = dir =>
 const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 	const isDev = argv.mode === "development";
 	const srcDir = (...args) => repoRoot("./src", bundleName, ...args);
-	const distDir = (...args) => outputPath(bundleName, ...args);
+	const distDir = (...args) =>
+		outputPath(bundleName == "homepage" ? "." : bundleName, ...args);
+	const publicPath = bundleName == "homepage" ? "" : bundleName + "/";
 
 	return {
 		entry: srcDir("index.js"),
@@ -34,7 +36,7 @@ const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 				? `${bundleName}.bundle.js`
 				: `${bundleName}.[contenthash:5].bundle.js`,
 			path: distDir(),
-			publicPath: `${config.base}/${bundleName}/`
+			publicPath: `${config.base}/${publicPath}`
 		},
 		resolve,
 		module: {
