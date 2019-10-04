@@ -109,6 +109,14 @@
 					position: relative;
 					padding-right: 5px;
 				}
+
+				img.logo {
+					display: inline-block;
+					position: relative;
+					vertical-align: middle;
+					margin: -0.25em 0px 0px;
+					padding-right: 5px;
+				}
 			}
 
 			&.current {
