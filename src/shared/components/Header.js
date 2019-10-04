@@ -1,4 +1,4 @@
-import { createElement, Component } from "preact";
+import { createElement } from "preact";
 import { useCallback } from "preact/hooks";
 import cx from "classcat";
 import config from "../config.json";
