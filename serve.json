@@ -6,10 +6,6 @@
 			"destination": "/preact-integrations/direct/index.html"
 		},
 		{
-			"source": "/preact-integrations/direct-compat/**",
-			"destination": "/preact-integrations/direct-compat/index.html"
-		},
-		{
 			"source": "/preact-integrations/full-compat/**",
 			"destination": "/preact-integrations/full-compat/index.html"
 		}

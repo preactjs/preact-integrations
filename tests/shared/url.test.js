@@ -4,7 +4,7 @@ import {
 } from "../../src/shared/utils/url";
 
 describe("URL utilities", () => {
-	const bundles = ["direct", "direct-compat", "full-compat"];
+	const bundles = ["direct", "full-compat"];
 	const libraries = ["router", "preact-router", "prism.js"];
 
 	function testUrl(path) {

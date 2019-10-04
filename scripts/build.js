@@ -39,7 +39,7 @@ async function getAvailableBundles() {
 }
 
 /**
- * @param {string[]} bundles Bundles such as "direct", "direct-compat", etc.
+ * @param {string[]} bundles Bundles such as "direct", "full-compat" etc.
  * @return {Promise<Record<string, string>>} Map of framework name to bundle name
  * e.g. { "preact-router": "direct" }
  */

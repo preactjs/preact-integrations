@@ -13,10 +13,6 @@
 			"name": "Direct"
 		},
 		{
-			"path": "/direct-compat/",
-			"name": "Direct Compat"
-		},
-		{
 			"path": "/full-compat/",
 			"name": "Full Compat"
 		}
