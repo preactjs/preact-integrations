@@ -3,7 +3,14 @@ import style from "./Header.scss";
 import preactLogo from "../assets/preact.svg";
 
 export function Logo() {
-	return <img class={style.logo} src={preactLogo} alt="Preact Logo" />;
+	return (
+		<img
+			width="34"
+			class={style.logo}
+			src={preactLogo}
+			alt="Preact Logo"
+		/>
+	);
 }
 
 export const InvertedLogo = Logo;

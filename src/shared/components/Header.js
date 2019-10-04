@@ -30,14 +30,14 @@ export function Header() {
 						aria-label="Browse the code on GitHub"
 						href="https://github.com/preactjs/preact-integrations"
 					>
-						<img src={githubIcon} alt="GitHub" />
+						<img src={githubIcon} alt="GitHub" width="26" />
 					</a>
 					<a
 						class={style.socialItem}
 						aria-label="Follow us on Twitter"
 						href="https://twitter.com/preactjs"
 					>
-						<img src={twitterIcon} alt="Twitter" />
+						<img src={twitterIcon} alt="Twitter" width="26" />
 					</a>
 				</div>
 				<Hamburgler open={open} onClick={toggle} />
