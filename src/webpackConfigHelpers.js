@@ -22,7 +22,7 @@ const listDirsSync = dir =>
  * @param {string} title
  * @returns {(env: any, argv: WebpackArgv) => import('webpack').Configuration}
  */
-const getConfig = (bundleName, title) => (env, argv) => {
+const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 	const isDev = argv.mode === "development";
 	const srcDir = (...args) => repoRoot("./src", bundleName, ...args);
 	const distDir = (...args) => outputPath(bundleName, ...args);
@@ -36,6 +36,7 @@ const getConfig = (bundleName, title) => (env, argv) => {
 			path: distDir(),
 			publicPath: `${config.base}/${bundleName}/`
 		},
+		resolve,
 		module: {
 			rules: [
 				{
