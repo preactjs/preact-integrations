@@ -28,7 +28,7 @@ export function Header() {
 					<a
 						class={style.socialItem}
 						aria-label="Browse the code on GitHub"
-						href="https://github.com/preactjs/preact-integrations"
+						href="https://github.com/preactjs/preact"
 					>
 						<img src={githubIcon} alt="GitHub" width="26" />
 					</a>
