@@ -1,9 +1,9 @@
-import { outputFolder } from "../../scripts/util";
-import { host } from "../../scripts/serve";
+import { outputFolder } from "../scripts/util";
+import { host } from "../scripts/serve";
 import {
 	getAvailableBundles,
 	getAvailableLibraries
-} from "../../scripts/build";
+} from "../scripts/build";
 
 let bundleCache;
 let libraryCache;

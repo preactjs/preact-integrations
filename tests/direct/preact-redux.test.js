@@ -1,4 +1,4 @@
-import { goToLibraryPage } from "./lib/util";
+import { goToLibraryPage } from "../util";
 
 describe("preact-redux", () => {
 	beforeEach(async () => {

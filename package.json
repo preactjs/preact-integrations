@@ -58,7 +58,7 @@
     "rootDir": "tests",
     "preset": "jest-puppeteer",
     "transform": {
-      "^.+\\.[t|j]sx?$": "<rootDir>/lib/babelTransformer.js"
+      "^.+\\.[t|j]sx?$": "<rootDir>/babelTransformer.js"
     }
   }
 }
