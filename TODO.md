@@ -1,7 +1,9 @@
+* Write contributing guide, homepage, and intro
+* Update test infra
+	* Add option to [launch tests in debug mode](https://github.com/smooth-code/jest-puppeteer/tree/master/packages/jest-environment-puppeteer#jest-puppeteerconfigjs)
+	* Use [jest-dev-server](https://github.com/smooth-code/jest-puppeteer/tree/master/packages/jest-dev-server) to manage dev server life while test run
 * Style page content
 * Add two frameworks to each category
-* Write contributing guide, homepage, and intro
-
 
 * Use a combobox for selecting a framework
 	* [Native datalist](https://caniuse.com/#feat=datalist)
