@@ -15,7 +15,7 @@ There are many ways you can contribute. Below is a guide to some of those ways.
 
 ## Request a library
 
-If you have a library that you'd like to see added to this website, [open a new issue]() and select the "Library Request" template. Fill in the requested details and press "Submit" when done.
+If you have a library that you'd like to see added to this website, [open a new issue](https://github.com/preactjs/preact-integrations/issues/new) and select the "Library Request" template. Fill in the requested details and press "Submit" when done.
 
 ## Adding libraries
 
