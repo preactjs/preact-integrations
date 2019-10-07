@@ -5,7 +5,6 @@ const { repoRoot } = require("./util");
 const { build } = require("./build");
 const { dev } = require("./dev");
 const { runDevServer } = require("./serve");
-const { test } = require("./test");
 
 // TODO: Uncomment if needed
 // https://github.com/mysticatea/npm-run-all/issues/105
@@ -57,11 +56,6 @@ async function main() {
 			"Watch src files of the passed in libraries (defaults to all), build them on change, and run a web server to serve them"
 		)
 		.action(run(dev));
-
-	prog
-		.command("test [libraries]")
-		.describe("Run the tests for the given libraries (defaults to all)")
-		.action(run(test));
 
 	prog
 		.command("serve")

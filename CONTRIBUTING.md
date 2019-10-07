@@ -9,6 +9,7 @@ There are many ways you can contribute. Below is a guide to some of those ways.
 * [Request a library](#request-a-library)
 * [Adding libraries](#adding-libraries)
 * [Adding tests](#adding-tests)
+	* [Debugging tests](#debugging-tests)
 * [File issues for bugs in sample apps](#file-issues-for-bugs-in-sample-apps)
 * [Fix bugs in sample apps](#fix-bugs-in-sample-apps)
 
@@ -82,6 +83,12 @@ Once your app is working, add some basic tests to assert that Preact continues t
 	
 1. Submit a Pull Request
 	Check out the Github docs on [creating a pull request from a fork](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork) for instructions on how to do this.
+
+### Debugging tests
+
+If you need to debug the code in your test, i.e. you want to set a breakpoint in your `library.test.js` file, follow instructions on [the Jest docs for your editor](https://jestjs.io/docs/en/troubleshooting#debugging-in-vs-code).
+
+If you want to debug what your app is doing in the browser while the tests are running, Add `jestPuppeteer.debug()` anywhere in your tests where you want the browser to break. Then run the `npm run test:debug <library>` command (replacing `<library>` with the library you are testing). This command will cause Chromium to not run headless and will suspend the browser wherever you put the `jestPuppeteer.debug()` call.
 
 ## File issues for bugs in sample apps
 

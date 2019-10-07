@@ -83,19 +83,17 @@ $ npm run build -- --help
 
 ### test
 
+The test command just runs `jest` so all [Jest CLI options](https://jestjs.io/docs/en/cli) are supported. The most useful one is passing in a pattern to filter which tests are run. For example, if you only want to run the `preact-router` tests, just pass in the string `preact-router` to only run tests that match that pattern:
+
 ```bash
-$ npm run test -- --help
-
-  Description
-    Run the tests for the given libraries (defaults to all)
-
-  Usage
-    $ scripts test [libraries] [options]
-
-  Options
-    --debug       Print out debugging info  (default false)
-    -h, --help    Displays this message
+npm run test preact-router
 ```
+
+### test:debug
+
+Launch `jest` and `puppeteer` with options to enable debugging the tests in Chromium. This will launch Chromium with headless turned off and devtools turned on. These options enable you to call `jestPuppeteer.debug()` in your test to pause jest and pause the browser. See the [`jest-puppeteer` docs for more info](https://github.com/smooth-code/jest-puppeteer/tree/master/packages/jest-environment-puppeteer#globaljestpuppeteerdebug).
+
+Also see the ["Debugging tests" section](./CONTRIBUTING.md#debugging-tests) in the CONTRIBUTING guide.
 
 ### serve
 
