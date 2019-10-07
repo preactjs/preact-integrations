@@ -24,7 +24,7 @@ There are many ways to help our project. Some include:
 * File issues for bugs in sample apps
 * Fixing bugs in sample apps
 
-Check out our [CONTRIBUTING][CONTRIBUTING.md] guide for details on how to contribute.
+Check out our [CONTRIBUTING](CONTRIBUTING.md) guide for details on how to contribute.
 
 ---
 
