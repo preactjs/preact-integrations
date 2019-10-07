@@ -6,6 +6,10 @@ render(
 	<App>
 		<div>
 			<h1>Home</h1>
+			<p>
+				Choose an integration method above (e.g. "Direct" or "Full Compat") to
+				test out how libraries integrate with Preact
+			</p>
 		</div>
 	</App>,
 	document.getElementById("app")

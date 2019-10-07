@@ -32,11 +32,15 @@ Check out our [CONTRIBUTING][CONTRIBUTING.md] guide for details on how to contri
 
 Follow these steps to setup and run this project locally.
 
-1. Install NPM dependencies
-	`npm install`
+1. Install NPM dependencies:  
+	```bash
+	npm install
+	```
 
-1. Run our `dev` script to build the project and start the development server
-	`npm run dev`
+1. Run our `dev` script to build the project and start the development server:  
+	```bash
+	npm run dev
+	```
 
 ---
 

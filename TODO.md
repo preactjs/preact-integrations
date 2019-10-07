@@ -2,6 +2,10 @@
 * Style page content
 * Add two frameworks to each category
 
+* Add metadata for each library in the directory to display on the libraries page
+	* Link to github page
+	* Perhaps add option to display the libraries' readme?
+	* Or pull the one-line description of the library and display on the site
 * Use a combobox for selecting a framework
 	* [Native datalist](https://caniuse.com/#feat=datalist)
 	* [Reach UI combobox](https://ui.reach.tech/combobox/)
