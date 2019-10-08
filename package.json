@@ -17,6 +17,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.6",
     "preact": "^10.0.0-rc.3",
     "preact-async-route": "^2.2.1",
     "preact-router": "^3.0.1",

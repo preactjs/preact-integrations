@@ -35,7 +35,17 @@ If you'd like to add a library to this project, follow these steps:
 1. Build the app
 	Simple apps that demonstrate the basic the functionality of the library are great. It doesn't need to cover every single feature - just the major ones. Sample apps from the library's documentation or getting started guide are usually great candidates.
 
-	If possible, try to avoid apps that rely on specific timings (like a clock). These kinds of apps are harder to write tests for. For some libraries (e.g. animations or clock libraries) this is unavoidable, and that's okay. But if possible, try to write apps that are deterministic based on user input. These apps are generally eaiser to test.
+	If possible, try to avoid apps that rely on specific timings (like a clock). These kinds of apps are harder to write tests for. For some libraries (e.g. animations or clock libraries) this is unavoidable, and that's okay. But if possible, try to write apps that are deterministic based on user input. These apps are generally easier to test.
+
+	**Using JSX**
+
+	If using JSX to build your app, you need to import the `createElement` function directly. When using React, it is common for developers to rely on React's default export: `import React from "react";`. In order for our website to work however, that import statment needs to look like `import React, { createElement } from "react";`. We require this syntax in this website because it allows the components in the `shared` folder to be written once and used in bundles that don't include the `React.createElement` function.
+
+	**Styling**
+
+	To style your components our bundling supports CSS and SCSS files. Write your styles in either a `.scss` or `.css` file. Then import that file into your component: `import styles from "./styles.css"`. The `styles` import is an object whose properties are all the classes defined in your CSS file. Use those properties to add the classes to your components: `<div className={styles["todo-app"]}></div>`.
+
+	At runtime, the actual class name will be slightly different then what you coded. It includes a couple of "random" characters at the end of the class name. These characters are added to reduce the likely of a class name conflict between apps. Importing the CSS file and using the properties from it guarantee that your component uses the correct CSS classes.
 
 1. Add a couple tests (optional but greatly appreciated)
 	See the [next section](#adding-tests) on how to add tests for your library
