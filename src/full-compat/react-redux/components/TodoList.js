@@ -7,7 +7,7 @@ import { getTodosByVisibilityFilter } from "../redux/selectors";
 import styles from "../styles.css";
 
 const TodoList = ({ todos }) => (
-	<ul className={styles["todo-list"]}>
+	<ul id="todo-list" className={styles["todo-list"]}>
 		{todos && todos.length
 			? todos.map((todo, index) => {
 					return <Todo key={`todo-${todo.id}`} todo={todo} />;

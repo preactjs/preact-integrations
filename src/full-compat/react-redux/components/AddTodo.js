@@ -22,10 +22,15 @@ class AddTodo extends React.Component {
 		return (
 			<div>
 				<input
+					id="add-todo-input"
 					onChange={e => this.updateInput(e.target.value)}
 					value={this.state.input}
 				/>
-				<button className={styles["add-todo"]} onClick={this.handleAddTodo}>
+				<button
+					id="add-todo-btn"
+					className={styles["add-todo"]}
+					onClick={this.handleAddTodo}
+				>
 					Add Todo
 				</button>
 			</div>
