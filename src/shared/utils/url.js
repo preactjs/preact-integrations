@@ -1,8 +1,7 @@
-const escapeRegex = require("escape-string-regexp");
 const config = require("../config");
 
 const libraryUrlRegex = new RegExp(
-	`(${escapeRegex(config.base)}/[A-z0-9\-]+)(/[A-z0-9\-\.]+)?.*`
+	`(${config.base}/[A-z0-9\-]+)(/[A-z0-9\-\.]+)?.*`
 );
 
 export function getUrl(url) {

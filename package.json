@@ -17,9 +17,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "classcat": "^4.0.2",
     "classnames": "^2.2.6",
     "preact": "^10.0.0-rc.3",
-    "preact-async-route": "^2.2.1",
     "preact-router": "^3.0.1",
     "react-redux": "^7.1.1",
     "redux": "^4.0.4"
@@ -34,11 +34,9 @@
     "@types/jest-environment-puppeteer": "^4.3.1",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
-    "classcat": "^4.0.2",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
-    "escape-string-regexp": "^2.0.0",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
