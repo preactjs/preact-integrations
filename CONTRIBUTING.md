@@ -39,7 +39,7 @@ If you'd like to add a library to this project, follow these steps:
 
 	**Using JSX**
 
-	If using JSX to build your app, you need to import the `createElement` function directly. When using React, it is common for developers to rely on React's default export: `import React from "react";`. In order for our website to work however, that import statment needs to look like `import React, { createElement } from "react";`. We require this syntax in this website because it allows the components in the `shared` folder to be written once and used in bundles that don't include the `React.createElement` function.
+	If using JSX to build your app, you need to import the `createElement` function directly. When using React, it is common for developers to rely on React's default export: `import React from "react";`. In order for our website to work however, that import statement needs to look like `import React, { createElement } from "react";`. We require this syntax in this website because it allows the components in the `shared` folder to be written once and used in bundles that don't include the `React.createElement` function.
 
 	**Styling**
 
@@ -99,6 +99,10 @@ Once your app is working, add some basic tests to assert that Preact continues t
 If you need to debug the code in your test, i.e. you want to set a breakpoint in your `library.test.js` file, follow instructions on [the Jest docs for your editor](https://jestjs.io/docs/en/troubleshooting#debugging-in-vs-code).
 
 If you want to debug what your app is doing in the browser while the tests are running, Add `jestPuppeteer.debug()` anywhere in your tests where you want the browser to break. Then run the `npm run test:debug <library>` command (replacing `<library>` with the library you are testing). This command will cause Chromium to not run headless and will suspend the browser wherever you put the `jestPuppeteer.debug()` call.
+
+> Note: it appears `jestPuppeteer.debug()` works best when you put it as the first line in your test, as well as wherever you want the test to pause. In order to resume test execution, first resume execution in the Chromium (F8 on windows), then press `Enter` in whatever terminal jest is running in.
+>
+> If all else fails, a good 'ol `console.log()` can sometimes do the trick
 
 ## File issues for bugs in sample apps
 

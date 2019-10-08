@@ -12,6 +12,7 @@ const VisibilityFilters = ({ activeFilter, setFilter }) => {
 				const currentFilter = VISIBILITY_FILTERS[filterKey];
 				return (
 					<span
+						id={`filter-${currentFilter}`}
 						key={`visibility-filter-${currentFilter}`}
 						className={cx(
 							styles["filter"],
