@@ -64,6 +64,31 @@ const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 					}
 				},
 				{
+					test: /\.css$/,
+					exclude: /node_modules/,
+					use: [
+						MiniCssExtractPlugin.loader,
+						{
+							loader: "css-loader",
+							options: {
+								modules: {
+									localIdentName: "[local]__[hash:base64:5]"
+								},
+								importLoaders: 1,
+								sourceMap: true
+							}
+						},
+						{
+							loader: "postcss-loader",
+							options: {
+								ident: "postcss",
+								sourceMap: true,
+								plugins: [require("autoprefixer")]
+							}
+						}
+					]
+				},
+				{
 					test: /\.scss$/,
 					exclude: /node_modules/,
 					use: [
