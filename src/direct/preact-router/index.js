@@ -5,19 +5,11 @@ const url = path =>
 	location.pathname + (location.pathname.endsWith("/") ? "" : "/") + path;
 
 function Page1() {
-	return (
-		<div>
-			<h2>Page 1</h2>
-		</div>
-	);
+	return <h2>Page 1</h2>;
 }
 
 function Page2() {
-	return (
-		<div>
-			<h2>Page 2</h2>
-		</div>
-	);
+	return <h2>Page 2</h2>;
 }
 
 export default function App() {
@@ -26,7 +18,7 @@ export default function App() {
 			<h1>Preact Router</h1>
 			<h2>Links</h2>
 			<nav>
-				<ul>
+				<ul id="links">
 					<li>
 						<Link activeClassName="active" href={url("")}>
 							Page 1
@@ -39,10 +31,12 @@ export default function App() {
 					</li>
 				</ul>
 			</nav>
-			<Router>
-				<Page1 path={url("")} />
-				<Page2 path={url("page2")} />
-			</Router>
+			<div id="router-content">
+				<Router>
+					<Page1 path={url("")} />
+					<Page2 path={url("page2")} />
+				</Router>
+			</div>
 		</div>
 	);
 }
