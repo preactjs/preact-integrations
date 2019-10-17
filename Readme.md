@@ -1,5 +1,7 @@
 # Preact Integrations
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/preactjs/preact-integrations.svg)](https://greenkeeper.io/)
+
 A collection of sample apps demonstrating Preact's compatibility with various 3rd party libraries
 
 ---
