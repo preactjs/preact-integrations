@@ -1,6 +1,6 @@
-import { createElement, render } from "preact";
-import "preact/debug";
-import { App } from "../shared/components/App";
+import { createElement, render } from 'preact';
+import 'preact/debug';
+import { App } from '../shared/components/App';
 
 render(
 	<App>
@@ -12,5 +12,5 @@ render(
 			</p>
 		</div>
 	</App>,
-	document.getElementById("app")
+	document.getElementById('app')
 );

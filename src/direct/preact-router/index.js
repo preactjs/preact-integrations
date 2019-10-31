@@ -1,8 +1,8 @@
-import { createElement } from "preact";
-import { Router, Link } from "preact-router";
+import { createElement } from 'preact';
+import { Router, Link } from 'preact-router';
 
 const url = path =>
-	location.pathname + (location.pathname.endsWith("/") ? "" : "/") + path;
+	location.pathname + (location.pathname.endsWith('/') ? '' : '/') + path;
 
 function Page1() {
 	return <h2>Page 1</h2>;
@@ -20,12 +20,12 @@ export default function App() {
 			<nav>
 				<ul id="links">
 					<li>
-						<Link activeClassName="active" href={url("")}>
+						<Link activeClassName="active" href={url('')}>
 							Page 1
 						</Link>
 					</li>
 					<li>
-						<Link activeClassName="active" href={url("page2")}>
+						<Link activeClassName="active" href={url('page2')}>
 							Page 2
 						</Link>
 					</li>
@@ -33,8 +33,8 @@ export default function App() {
 			</nav>
 			<div id="router-content">
 				<Router>
-					<Page1 path={url("")} />
-					<Page2 path={url("page2")} />
+					<Page1 path={url('')} />
+					<Page2 path={url('page2')} />
 				</Router>
 			</div>
 		</div>

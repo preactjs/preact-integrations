@@ -1,9 +1,9 @@
-import { createElement, render } from "preact";
-import "preact/debug";
-import { App } from "../shared/components/App";
-import { Page } from "../shared/components/Page";
-import { readLibraryFromUrl } from "../shared/utils/url";
-import { DirectIntro } from "./DirectIntro";
+import { createElement, render } from 'preact';
+import 'preact/debug';
+import { App } from '../shared/components/App';
+import { Page } from '../shared/components/Page';
+import { readLibraryFromUrl } from '../shared/utils/url';
+import { DirectIntro } from './DirectIntro';
 
 /** @type {string[]} */
 const libraries = window.PreactIntegrationLibraries;
@@ -21,5 +21,5 @@ render(
 			Intro={DirectIntro}
 		/>
 	</App>,
-	document.getElementById("app")
+	document.getElementById('app')
 );

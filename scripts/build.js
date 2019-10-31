@@ -1,11 +1,11 @@
-const { runNode } = require("./lib/node");
+const { runNode } = require('./lib/node');
 const {
 	repoRoot,
 	webpackConfigPath,
 	srcPath,
 	listDirs,
 	exists
-} = require("./util");
+} = require('./util');
 
 /**
  * @param {string} configPath
@@ -14,12 +14,12 @@ const {
 function runWebpack(configPath, options) {
 	const extraArgs = [];
 	if (options.watch) {
-		extraArgs.push("--watch");
+		extraArgs.push('--watch');
 	}
 
 	return runNode(
-		repoRoot("./node_modules/webpack/bin/webpack.js"),
-		["--config", configPath, "--mode", options.mode, ...extraArgs],
+		repoRoot('./node_modules/webpack/bin/webpack.js'),
+		['--config', configPath, '--mode', options.mode, ...extraArgs],
 		options
 	);
 }
@@ -66,7 +66,7 @@ async function getAvailableLibraries(bundles) {
 const defaultBuildOptions = Object.freeze({
 	debug: false,
 	watch: false,
-	mode: "production",
+	mode: 'production',
 	cwd: repoRoot()
 });
 

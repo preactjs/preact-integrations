@@ -1,2 +1,2 @@
-const { getConfig } = require("../webpackConfigHelpers");
-module.exports = getConfig("direct", "Direct");
+const { getConfig } = require('../webpackConfigHelpers');
+module.exports = getConfig('direct', 'Direct');

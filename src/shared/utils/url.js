@@ -1,4 +1,4 @@
-const config = require("../config");
+const config = require('../config');
 
 const libraryUrlRegex = new RegExp(
 	`(${config.base}/[A-z0-9\-]+)(/[A-z0-9\-\.]+)?.*`
@@ -21,7 +21,7 @@ export function readLibraryFromUrl(libraries, url = location.href) {
 		}
 	}
 
-	return "";
+	return '';
 }
 
 /**
@@ -30,10 +30,10 @@ export function readLibraryFromUrl(libraries, url = location.href) {
  */
 export function setLibraryInUrl(library, url = location.href) {
 	let encoded = encodeURIComponent(library);
-	if (encoded != "") {
-		encoded += "/"
+	if (encoded != '') {
+		encoded += '/';
 	}
 
 	const newUrl = url.replace(libraryUrlRegex, `$1/${encoded}`);
-	history.pushState({}, "", newUrl);
+	history.pushState({}, '', newUrl);
 }

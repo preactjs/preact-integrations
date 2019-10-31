@@ -1,9 +1,6 @@
-import { outputFolder } from "../scripts/util";
-import { host } from "../scripts/serve";
-import {
-	getAvailableBundles,
-	getAvailableLibraries
-} from "../scripts/build";
+import { outputFolder } from '../scripts/util';
+import { host } from '../scripts/serve';
+import { getAvailableBundles, getAvailableLibraries } from '../scripts/build';
 
 let bundleCache;
 let libraryCache;
@@ -26,6 +23,6 @@ async function libraryPath(library) {
 
 export async function goToLibraryPage(library) {
 	return page.goto(`${host}/${outputFolder}/${await libraryPath(library)}`, {
-		waitUntil: "networkidle0"
+		waitUntil: 'networkidle0'
 	});
 }

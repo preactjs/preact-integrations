@@ -1,5 +1,5 @@
-const { getWebpackTasks } = require("./build");
-const { runDevServer } = require("./serve");
+const { getWebpackTasks } = require('./build');
+const { runDevServer } = require('./serve');
 
 /**
  * @param {string[]} buildRequests

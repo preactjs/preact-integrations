@@ -1,14 +1,14 @@
-import { createElement } from "preact";
-import { useCallback } from "preact/hooks";
-import cx from "classcat";
-import config from "../config.json";
-import githubIcon from "../assets/github.svg";
-import twitterIcon from "../assets/twitter.svg";
-import { useOverlayToggle } from "../lib/useOverlayToggle";
-import { getUrl } from "../utils/url";
-import style from "./Header.scss";
-import { InvertedLogo } from "./Logo.js";
-import Corner from "./Corner.js";
+import { createElement } from 'preact';
+import { useCallback } from 'preact/hooks';
+import cx from 'classcat';
+import config from '../config.json';
+import githubIcon from '../assets/github.svg';
+import twitterIcon from '../assets/twitter.svg';
+import { useOverlayToggle } from '../lib/useOverlayToggle';
+import { getUrl } from '../utils/url';
+import style from './Header.scss';
+import { InvertedLogo } from './Logo.js';
+import Corner from './Corner.js';
 
 const LINK_FLAIR = {
 	logo: InvertedLogo
@@ -84,7 +84,7 @@ function Nav({ routes, current, ...props }) {
  */
 function NavLink({ to, ...props }) {
 	let Flair = to.flair && LINK_FLAIR[to.flair];
-	const href = to.path ? getUrl(to.path) : "javascript:";
+	const href = to.path ? getUrl(to.path) : 'javascript:';
 	return (
 		<a href={href} {...props}>
 			{Flair && <Flair />}

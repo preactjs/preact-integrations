@@ -1,4 +1,4 @@
-import { createElement, Fragment } from "preact";
+import { createElement, Fragment } from 'preact';
 
 export function FullCompatIntro() {
 	return (

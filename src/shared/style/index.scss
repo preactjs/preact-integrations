@@ -1,4 +1,4 @@
-@import "./_variables.scss";
+@import './_variables.scss';
 
 :root {
 	// Default variables that will be used by postcss-css-variables to generate
@@ -149,8 +149,8 @@ body {
 	margin: 0;
 	background: var(--color-page-bg);
 	color: var(--color-text);
-	font: 16px/1.65 system-ui, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font: 16px/1.65 system-ui, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -172,8 +172,8 @@ h2 {
 
 pre,
 code {
-	font-family: "source-code-pro", Menlo, Consolas, Monaco, "Andale Mono",
-		"Courier New", monospace;
+	font-family: 'source-code-pro', Menlo, Consolas, Monaco, 'Andale Mono',
+		'Courier New', monospace;
 	font-size: 0.9rem;
 }
 

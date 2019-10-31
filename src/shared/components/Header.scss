@@ -1,4 +1,4 @@
-@import "../style/_variables.scss";
+@import '../style/_variables.scss';
 
 .header {
 	position: fixed;
@@ -233,7 +233,7 @@
 	}
 
 	&:before {
-		content: "";
+		content: '';
 		position: absolute;
 		left: 0;
 		top: 0;

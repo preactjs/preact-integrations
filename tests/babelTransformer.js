@@ -1,20 +1,20 @@
-const babelJest = require("babel-jest");
+const babelJest = require('babel-jest');
 
 module.exports = babelJest.createTransformer({
 	presets: [
 		[
-			"@babel/preset-env",
+			'@babel/preset-env',
 			{
 				targets: {
-					node: "current"
+					node: 'current'
 				}
 			}
 		],
 		[
-			"@babel/preset-react",
+			'@babel/preset-react',
 			{
-				pragma: "toHtmlString",
-				pragmaFrag: "toHtmlString.Fragment"
+				pragma: 'toHtmlString',
+				pragmaFrag: 'toHtmlString.Fragment'
 			}
 		]
 	]

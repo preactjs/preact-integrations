@@ -1,11 +1,11 @@
-const { port } = require("./scripts/serve");
+const { port } = require('./scripts/serve');
 
 module.exports = {
 	launch: {
-		devtools: process.env.PPTR_DEBUG === "true"
+		devtools: process.env.PPTR_DEBUG === 'true'
 	},
 	server: {
-		command: "node ./scripts serve",
+		command: 'node ./scripts serve',
 		port,
 		launchTimeout: 10000
 	}

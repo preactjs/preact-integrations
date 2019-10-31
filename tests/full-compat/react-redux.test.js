@@ -1,19 +1,19 @@
-import { goToLibraryPage } from "../util";
+import { goToLibraryPage } from '../util';
 
-describe("react-redux", () => {
-	const emptyListText = "No todos, yay!";
-	const completeSign = "👌";
-	const incompleteSign = "👋";
+describe('react-redux', () => {
+	const emptyListText = 'No todos, yay!';
+	const completeSign = '👌';
+	const incompleteSign = '👋';
 
-	const inputSel = "#add-todo-input";
-	const addTodoBtnSel = "#add-todo-btn";
-	const todoListSel = "#todo-list";
-	const todoSel = "#todo-list li[class*=todo-item]";
-	const allFilterSel = "#filter-all";
-	const completedFilterSel = "#filter-completed";
-	const incompleteFilterSel = "#filter-incomplete";
+	const inputSel = '#add-todo-input';
+	const addTodoBtnSel = '#add-todo-btn';
+	const todoListSel = '#todo-list';
+	const todoSel = '#todo-list li[class*=todo-item]';
+	const allFilterSel = '#filter-all';
+	const completedFilterSel = '#filter-completed';
+	const incompleteFilterSel = '#filter-incomplete';
 
-	const mockTodos = ["Todo 1", "Todo 2", "Todo 3"];
+	const mockTodos = ['Todo 1', 'Todo 2', 'Todo 3'];
 
 	function getTodos() {
 		return page.$$eval(todoSel, elements => elements.map(e => e.textContent));
@@ -69,15 +69,15 @@ describe("react-redux", () => {
 	}
 
 	beforeEach(async () => {
-		await goToLibraryPage("react-redux");
+		await goToLibraryPage('react-redux');
 	});
 
-	it("should render", async () => {
+	it('should render', async () => {
 		const contents = await page.content();
 		expect(contents).toMatch(/Todo List/);
 	});
 
-	it("should add todos to the list", async () => {
+	it('should add todos to the list', async () => {
 		const todoContents = await page.$eval(todoListSel, e => e.textContent);
 		expect(todoContents).toBe(emptyListText);
 
@@ -94,7 +94,7 @@ describe("react-redux", () => {
 		expect(await getTodos()).toEqual(mockTodos.map(todo => todoItemText(todo)));
 	});
 
-	it("should mark todos as completed", async () => {
+	it('should mark todos as completed', async () => {
 		await addTodo(mockTodos[0]);
 		expect(await getTodos()).toEqual([todoItemText(mockTodos[0])]);
 
@@ -102,7 +102,7 @@ describe("react-redux", () => {
 		expect(await getTodos()).toEqual([todoItemText(mockTodos[0], true)]);
 	});
 
-	it("should properly filter todos", async () => {
+	it('should properly filter todos', async () => {
 		await addTodo(mockTodos[0]);
 		await verifyFilters(
 			[todoItemText(mockTodos[0])],

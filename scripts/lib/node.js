@@ -1,5 +1,5 @@
-const { spawn } = require("child_process");
-const { repoRoot } = require("../../scripts/util");
+const { spawn } = require('child_process');
+const { repoRoot } = require('../../scripts/util');
 
 /**
  * @typedef {{ debug?: boolean; cwd?: string; }} NodeOptions
@@ -10,10 +10,10 @@ const { repoRoot } = require("../../scripts/util");
 function runNode(path, args, options = {}) {
 	args.unshift(path);
 	if (options.debug) {
-		console.log("$", process.execPath, args.join(" "));
+		console.log('$', process.execPath, args.join(' '));
 	}
 	return spawn(process.execPath, args, {
-		stdio: "inherit",
+		stdio: 'inherit',
 		cwd: options.cwd || repoRoot()
 	});
 }
@@ -24,8 +24,8 @@ function runNode(path, args, options = {}) {
  */
 function toCompletion(childProcess) {
 	return new Promise((resolve, reject) => {
-		childProcess.on("error", reject);
-		childProcess.on("exit", (code, signal) => {
+		childProcess.on('error', reject);
+		childProcess.on('exit', (code, signal) => {
 			if (code > 0) {
 				const error = new Error(
 					`Child process exited with non-success code: ${code}`
@@ -33,8 +33,7 @@ function toCompletion(childProcess) {
 				error.signal = signal;
 
 				reject(error);
-			}
-			else {
+			} else {
 				resolve();
 			}
 		});

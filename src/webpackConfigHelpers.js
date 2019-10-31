@@ -1,14 +1,14 @@
-const { readdirSync } = require("fs");
-const TerserPlugin = require("terser-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+const { readdirSync } = require('fs');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 	.BundleAnalyzerPlugin;
 
-const config = require("./shared/config");
-const { repoRoot, outputPath } = require("../scripts/util");
+const config = require('./shared/config');
+const { repoRoot, outputPath } = require('../scripts/util');
 
 const listDirsSync = dir =>
 	readdirSync(dir, { withFileTypes: true })
@@ -22,14 +22,14 @@ const listDirsSync = dir =>
  * @returns {(env: any, argv: WebpackArgv) => import('webpack').Configuration}
  */
 const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
-	const isDev = argv.mode === "development";
-	const srcDir = (...args) => repoRoot("./src", bundleName, ...args);
+	const isDev = argv.mode === 'development';
+	const srcDir = (...args) => repoRoot('./src', bundleName, ...args);
 	const distDir = (...args) =>
-		outputPath(bundleName == "homepage" ? "." : bundleName, ...args);
-	const publicPath = bundleName == "homepage" ? "" : bundleName + "/";
+		outputPath(bundleName == 'homepage' ? '.' : bundleName, ...args);
+	const publicPath = bundleName == 'homepage' ? '' : bundleName + '/';
 
 	return {
-		entry: srcDir("index.js"),
+		entry: srcDir('index.js'),
 		output: {
 			filename: isDev
 				? `${bundleName}.bundle.js`
@@ -44,20 +44,20 @@ const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 					test: /\.m?js$/,
 					exclude: /node_modules/,
 					use: {
-						loader: "babel-loader",
+						loader: 'babel-loader',
 						options: {
 							presets: [
-								"@babel/preset-env",
+								'@babel/preset-env',
 								[
-									"@babel/preset-react",
+									'@babel/preset-react',
 									{
-										pragma: "createElement",
-										pragmaFrag: "Fragment"
+										pragma: 'createElement',
+										pragmaFrag: 'Fragment'
 									}
 								]
 							],
 							plugins: [
-								["@babel/plugin-proposal-class-properties", { loose: true }]
+								['@babel/plugin-proposal-class-properties', { loose: true }]
 							]
 						}
 					}
@@ -68,21 +68,21 @@ const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 					use: [
 						MiniCssExtractPlugin.loader,
 						{
-							loader: "css-loader",
+							loader: 'css-loader',
 							options: {
 								modules: {
-									localIdentName: "[local]__[hash:base64:5]"
+									localIdentName: '[local]__[hash:base64:5]'
 								},
 								importLoaders: 1,
 								sourceMap: true
 							}
 						},
 						{
-							loader: "postcss-loader",
+							loader: 'postcss-loader',
 							options: {
-								ident: "postcss",
+								ident: 'postcss',
 								sourceMap: true,
-								plugins: [require("autoprefixer")]
+								plugins: [require('autoprefixer')]
 							}
 						}
 					]
@@ -93,25 +93,25 @@ const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 					use: [
 						MiniCssExtractPlugin.loader,
 						{
-							loader: "css-loader",
+							loader: 'css-loader',
 							options: {
 								modules: {
-									localIdentName: "[local]__[hash:base64:5]"
+									localIdentName: '[local]__[hash:base64:5]'
 								},
 								importLoaders: 1,
 								sourceMap: true
 							}
 						},
 						{
-							loader: "postcss-loader",
+							loader: 'postcss-loader',
 							options: {
-								ident: "postcss",
+								ident: 'postcss',
 								sourceMap: true,
-								plugins: [require("autoprefixer")]
+								plugins: [require('autoprefixer')]
 							}
 						},
 						{
-							loader: "sass-loader",
+							loader: 'sass-loader',
 							options: {
 								sourceMap: true
 							}
@@ -120,27 +120,27 @@ const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 				},
 				{
 					test: /\.(svg|woff2?|ttf|eot|jpe?g|png|webp|gif|mp4|mov|ogg|webm)(\?.*)?$/i,
-					loader: "file-loader",
+					loader: 'file-loader',
 					options: {
-						name: isDev ? "[name].[ext]" : "[name].[contenthash:5].[ext]"
+						name: isDev ? '[name].[ext]' : '[name].[contenthash:5].[ext]'
 					}
 				}
 			]
 		},
 		optimization: {
 			minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin()],
-			moduleIds: isDev ? "named" : "hashed"
+			moduleIds: isDev ? 'named' : 'hashed'
 		},
 		plugins: [
 			new MiniCssExtractPlugin({
-				filename: isDev ? "[name].css" : "[name].[contenthash:5].css",
+				filename: isDev ? '[name].css' : '[name].[contenthash:5].css',
 				chunkFilename: isDev
-					? "[id].[name].chunk.css"
-					: "[name].chunk.[contenthash:5].css"
+					? '[id].[name].chunk.css'
+					: '[name].chunk.[contenthash:5].css'
 			}),
 			new HtmlWebpackPlugin({
 				title: `${title} - Preact Integrations`,
-				template: repoRoot("src/shared/template.ejs"),
+				template: repoRoot('src/shared/template.ejs'),
 				templateParameters(compilation, assets, options) {
 					return {
 						// Re-create default params
@@ -157,12 +157,12 @@ const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 				}
 			}),
 			new BundleAnalyzerPlugin({
-				analyzerMode: "static",
-				defaultSizes: "gzip",
-				reportFilename: "stats/bundle-analyzer.html",
+				analyzerMode: 'static',
+				defaultSizes: 'gzip',
+				reportFilename: 'stats/bundle-analyzer.html',
 				openAnalyzer: false,
 				// generateStatsFile: true, // Expensive. Only generate when needed
-				statsFilename: "stats/stats.json"
+				statsFilename: 'stats/stats.json'
 			}),
 			...(isDev ? [] : [new CleanWebpackPlugin({})])
 		].filter(Boolean)

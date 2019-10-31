@@ -1,6 +1,6 @@
-const { repoRoot } = require("./util");
-const { get } = require("./lib/request");
-const { runNode, toCompletion } = require("./lib/node");
+const { repoRoot } = require('./util');
+const { get } = require('./lib/request');
+const { runNode, toCompletion } = require('./lib/node');
 
 const port = 5000;
 const devHost = `http://localhost:${port}`;
@@ -10,8 +10,8 @@ const devHost = `http://localhost:${port}`;
  */
 function runDevServer(options) {
 	return runNode(
-		repoRoot("node_modules/serve/bin/serve.js"),
-		[repoRoot(), "-l", port.toString()],
+		repoRoot('node_modules/serve/bin/serve.js'),
+		[repoRoot(), '-l', port.toString()],
 		options
 	);
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from 'preact/hooks';
 
 /**
  * On mobile devices 100vh refers to the whole viewport **without** the
@@ -16,8 +16,8 @@ export function useOverlayToggle() {
 
 	useEffect(onResize, [open]);
 	useEffect(() => {
-		window.addEventListener("resize", onResize);
-		return () => window.removeEventListener("resize", onResize);
+		window.addEventListener('resize', onResize);
+		return () => window.removeEventListener('resize', onResize);
 	}, [open]);
 
 	return [open, setOpen];
@@ -25,5 +25,5 @@ export function useOverlayToggle() {
 
 function setHeight() {
 	let vh = window.innerHeight;
-	document.documentElement.style.setProperty("--vh", `${vh}px`);
+	document.documentElement.style.setProperty('--vh', `${vh}px`);
 }

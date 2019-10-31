@@ -1,18 +1,18 @@
-import { createElement } from "react";
-import { connect } from "react-redux";
-import Todo from "./Todo";
+import { createElement } from 'react';
+import { connect } from 'react-redux';
+import Todo from './Todo';
 // import { getTodos } from "../redux/selectors";
-import { getTodosByVisibilityFilter } from "../redux/selectors";
+import { getTodosByVisibilityFilter } from '../redux/selectors';
 // import { VISIBILITY_FILTERS } from "../constants";
-import styles from "../styles.css";
+import styles from '../styles.css';
 
 const TodoList = ({ todos }) => (
-	<ul id="todo-list" className={styles["todo-list"]}>
+	<ul id="todo-list" className={styles['todo-list']}>
 		{todos && todos.length
 			? todos.map((todo, index) => {
 					return <Todo key={`todo-${todo.id}`} todo={todo} />;
 			  })
-			: "No todos, yay!"}
+			: 'No todos, yay!'}
 	</ul>
 );
 

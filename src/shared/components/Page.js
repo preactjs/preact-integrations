@@ -1,9 +1,9 @@
-import { Fragment, createElement } from "preact";
-import { useState, useEffect } from "preact/hooks";
-import { setLibraryInUrl } from "../utils/url";
-import { Loading } from "./Loading";
-import { LibraryToolbar } from "./LibraryToolbar";
-import style from "./Page.scss";
+import { Fragment, createElement } from 'preact';
+import { useState, useEffect } from 'preact/hooks';
+import { setLibraryInUrl } from '../utils/url';
+import { Loading } from './Loading';
+import { LibraryToolbar } from './LibraryToolbar';
+import style from './Page.scss';
 
 /**
  * @typedef {(library: string) => Promise<import('preact').AnyComponent>} LibraryLoader
@@ -38,7 +38,7 @@ export function Page({ libraries, initialLibrary, loadLibrary, Intro }) {
 				onChange={onLibraryChange}
 			/>
 			<div class={style.content}>
-				{loading ? <Loading /> : selectedLibrary == "" ? <Intro /> : <Body />}
+				{loading ? <Loading /> : selectedLibrary == '' ? <Intro /> : <Body />}
 			</div>
 		</Fragment>
 	);

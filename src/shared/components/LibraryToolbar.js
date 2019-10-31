@@ -1,5 +1,5 @@
-import { createElement } from "preact";
-import style from "./LibraryToolbar.scss";
+import { createElement } from 'preact';
+import style from './LibraryToolbar.scss';
 
 /**
  * @param {{ libraries: string[], selectedLibrary: string; onChange: (e: Event) => void}} props

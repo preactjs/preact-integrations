@@ -1,15 +1,15 @@
-const path = require("path");
-const { promisify } = require("util");
-const { exists: existsAsync } = require("fs");
-const { readdir } = require("fs").promises;
+const path = require('path');
+const { promisify } = require('util');
+const { exists: existsAsync } = require('fs');
+const { readdir } = require('fs').promises;
 
-const outputFolder = "preact-integrations";
+const outputFolder = 'preact-integrations';
 const outputPath = (...args) => repoRoot(outputFolder, ...args);
 
-const repoRoot = (...args) => path.join(__dirname, "..", ...args);
-const srcPath = (...args) => repoRoot("src", ...args);
+const repoRoot = (...args) => path.join(__dirname, '..', ...args);
+const srcPath = (...args) => repoRoot('src', ...args);
 const webpackConfigPath = bundleName =>
-	srcPath(bundleName, "webpack.config.js");
+	srcPath(bundleName, 'webpack.config.js');
 
 const exists = promisify(existsAsync);
 

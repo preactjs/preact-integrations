@@ -1,4 +1,4 @@
-const http = require("http");
+const http = require('http');
 
 function get(url) {
 	return new Promise((resolve, reject) => {
@@ -14,18 +14,18 @@ function get(url) {
 					reject(error);
 				}
 
-				res.setEncoding("utf8");
+				res.setEncoding('utf8');
 
-				let rawData = "";
-				res.on("data", chunk => {
+				let rawData = '';
+				res.on('data', chunk => {
 					rawData += chunk;
 				});
 
-				res.on("end", () => {
+				res.on('end', () => {
 					resolve(rawData);
 				});
 			})
-			.on("error", reject);
+			.on('error', reject);
 	});
 }
 

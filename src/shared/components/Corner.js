@@ -1,5 +1,5 @@
-import { createElement } from "preact";
-import style from "./corner.scss";
+import { createElement } from 'preact';
+import style from './corner.scss';
 
 export default function Corner() {
 	return (

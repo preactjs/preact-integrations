@@ -1,12 +1,12 @@
-import React, { createElement } from "react";
-import { connect } from "react-redux";
-import { addTodo } from "../redux/actions";
-import styles from "../styles.css";
+import React, { createElement } from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../redux/actions';
+import styles from '../styles.css';
 
 class AddTodo extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { input: "" };
+		this.state = { input: '' };
 	}
 
 	updateInput = input => {
@@ -15,7 +15,7 @@ class AddTodo extends React.Component {
 
 	handleAddTodo = () => {
 		this.props.addTodo(this.state.input);
-		this.setState({ input: "" });
+		this.setState({ input: '' });
 	};
 
 	render() {
@@ -28,7 +28,7 @@ class AddTodo extends React.Component {
 				/>
 				<button
 					id="add-todo-btn"
-					className={styles["add-todo"]}
+					className={styles['add-todo']}
 					onClick={this.handleAddTodo}
 				>
 					Add Todo
