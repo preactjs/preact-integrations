@@ -49,7 +49,6 @@
     "sade": "^1.6.1",
     "sass-loader": "^8.0.0",
     "serve": "^11.2.0",
-    "size-plugin": "^2.0.0",
     "terser-webpack-plugin": "^2.1.0",
     "webpack": "^4.40.0",
     "webpack-bundle-analyzer": "^3.5.0",
