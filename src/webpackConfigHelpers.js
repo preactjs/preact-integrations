@@ -1,4 +1,5 @@
 const { readdirSync } = require('fs');
+const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -27,6 +28,13 @@ const getConfig = (bundleName, title, resolve = {}) => (env, argv) => {
 	const distDir = (...args) =>
 		outputPath(bundleName == 'homepage' ? '.' : bundleName, ...args);
 	const publicPath = bundleName == 'homepage' ? '' : bundleName + '/';
+
+	if (argv.preact) {
+		resolve.alias = resolve.alias || {};
+		resolve.alias.preact = argv.preact;
+		resolve.alias['preact/compat'] = path.join(argv.preact, 'compat');
+		resolve.alias['preact/test-utils'] = path.join(argv.preact, 'test-utils');
+	}
 
 	return {
 		entry: srcDir('index.js'),

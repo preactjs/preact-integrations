@@ -38,7 +38,13 @@ async function main() {
 		.version;
 
 	const prog = sade('scripts');
-	prog.version(version).option('--debug', 'Print out debugging info', false);
+	prog
+		.version(version)
+		.option('--debug', 'Print out debugging info', false)
+		.option(
+			'--preact',
+			'Path to a preact repo or package to bundle instead of the node_modules version. Must be a path to the directory containing the root package.json in the Preact repo or package.'
+		);
 
 	prog
 		.command('build [libraries]')

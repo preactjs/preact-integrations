@@ -1,3 +1,4 @@
+const path = require('path');
 const { runNode } = require('./lib/node');
 const {
 	repoRoot,
@@ -15,6 +16,10 @@ function runWebpack(configPath, options) {
 	const extraArgs = [];
 	if (options.watch) {
 		extraArgs.push('--watch');
+	}
+
+	if (options.preact) {
+		extraArgs.push('--preact', path.resolve(process.cwd(), options.preact));
 	}
 
 	return runNode(
@@ -72,7 +77,7 @@ const defaultBuildOptions = Object.freeze({
 
 /**
  * @typedef {"development" | "production"} BuildMode
- * @typedef {{ debug?: boolean; watch?: boolean; mode?: BuildMode, cwd?: string; }} WebpackOptions
+ * @typedef {{ debug?: boolean; watch?: boolean; mode?: BuildMode, cwd?: string; preact?: string }} WebpackOptions
  * @param {string[]} buildRequests
  * @param {WebpackOptions} [options]
  * @returns {Promise<Array<() => void>>}

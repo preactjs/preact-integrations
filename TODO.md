@@ -1,6 +1,8 @@
 * Write homepage, and intro
 * Style page content
+* Perhaps test command watches files and reruns tests on file change (including custom preact file)
 * Add two frameworks to each category
+
 
 * Add metadata for each library in the directory to display on the libraries page
 	* Link to github page
@@ -14,11 +16,6 @@
 	* [Lightning Design System combobox](https://www.lightningdesignsystem.com/components/combobox/)
 	* [Carbon Design System combobox](https://www.carbondesignsystem.com/components/dropdown/code/)
 * Consider recommending the [Puppeteer Recorder](https://chrome.google.com/webstore/detail/puppeteer-recorder/djeegiggegleadkkbgopoonhjimgehda) when contributing tests
-
-
-* Add option to specify custom preact file to use when building, testing, etc.
-* Webpack should re-bundle when custom preact file changes 
-* Perhaps test command watches files and reruns tests on file change (including custom preact file)
 
 
 * Add "Open in Sandbox" button using [CodeSandbox define api](https://codesandbox.io/docs/importing#define-api)

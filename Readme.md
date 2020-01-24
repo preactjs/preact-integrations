@@ -18,11 +18,11 @@ We are looking for contributors to add more libraries to this repository! If tha
 
 There are many ways to help our project. Some include:
 
-* Request a library to add
-* Adding libraries
-* Adding tests for libraries
-* File issues for bugs in sample apps
-* Fixing bugs in sample apps
+- Request a library to add
+- Adding libraries
+- Adding tests for libraries
+- File issues for bugs in sample apps
+- Fixing bugs in sample apps
 
 Check out our [CONTRIBUTING](CONTRIBUTING.md) guide for details on how to contribute.
 
@@ -32,15 +32,15 @@ Check out our [CONTRIBUTING](CONTRIBUTING.md) guide for details on how to contri
 
 Follow these steps to setup and run this project locally.
 
-1. Install NPM dependencies:  
-	```bash
-	npm install
-	```
+1. Install NPM dependencies:
+   ```bash
+   npm install
+   ```
 
-1. Run our `dev` script to build the project and start the development server:  
-	```bash
-	npm run dev
-	```
+1. Run our `dev` script to build the project and start the development server:
+   ```bash
+   npm run dev
+   ```
 
 ---
 
@@ -64,6 +64,8 @@ $ npm run dev -- --help
   Options
     -m, --mode    'production' or 'development'  (default development)
     --debug       Print out debugging info  (default false)
+    --preact      Path to a preact repo or package to bundle instead of the node_modules version.
+		              Must be a path to the directory containing the root package.json in the Preact repo	 or package.
     -h, --help    Displays this message
 ```
 
@@ -82,6 +84,8 @@ $ npm run build -- --help
     -m, --mode     'production' or 'development'  (default production)
     -w, --watch    Watch source files and rebuild on change  (default false)
     --debug        Print out debugging info  (default false)
+    --preact       Path to a preact repo or package to bundle instead of the node_modules version.
+		               Must be a path to the directory containing the root package.json in the Preact repo or package.
     -h, --help     Displays this message
 ```
 
@@ -112,6 +116,8 @@ $ npm run serve -- --help
 
   Options
     --debug       Print out debugging info  (default false)
+    --preact      Path to a preact repo or package to bundle instead of the node_modules version.
+		              Must be a path to the directory containing the root package.json in the Preact repo or package.
     -h, --help    Displays this message
 ```
 
@@ -120,6 +126,12 @@ $ npm run serve -- --help
 ## 👀 Code Reviews
 
 All submissions, including submissions by project members, require review. It's a great way to learn. We use GitHub pull requests for this purpose. Consult [GitHub Help](https://help.github.com/articles/about-pull-requests/) for more information on using pull requests.
+
+---
+
+## Using with Preact repo
+
+If you are a contributor to [the main Preact repo](https://github.com/preactjs/preact), you can point this repo to your local Preact repo to validate changes you make there. For any of the commands above, specify a `--preact` option to build the integrations website with your local repo. Point the `--preact` option to the top folder of the Preact repo that contains the root `package.json`.
 
 ---
 
